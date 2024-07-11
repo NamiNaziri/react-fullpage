@@ -11,6 +11,7 @@ class Fullpage extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     transitionTiming: PropTypes.number,
+    scrollLockTiming: PropTypes.number,
     style: PropTypes.objectOf(PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string,
@@ -23,6 +24,7 @@ class Fullpage extends PureComponent {
 
   static defaultProps = {
     transitionTiming: 700,
+    scrollLockTiming: 700,
     style: {
       position: 'fixed',
       top: 0,
@@ -252,7 +254,7 @@ class Fullpage extends PureComponent {
 
       setTimeout(() => {
         this.lockScroll = false;
-      }, 1000);
+      }, scrollLockTiming);
 
       const {
         onShow,
@@ -302,6 +304,7 @@ class Fullpage extends PureComponent {
       style,
       className,
       transitionTiming,
+      scrollLockTiming,
     } = this.props;
 
     const {
@@ -329,6 +332,7 @@ class Fullpage extends PureComponent {
           next: this.next,
           getIndex: this.getIndex,
           transitionTiming,
+          scrollLockTiming,
           className,
           style,
           warperRef: this.warperRef,
