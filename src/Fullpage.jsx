@@ -227,6 +227,7 @@ class Fullpage extends PureComponent {
     const {
       transitionTiming,
       onChange,
+      scrollLockTiming,
     } = this.props;
 
     if (slide !== newSlide) {
